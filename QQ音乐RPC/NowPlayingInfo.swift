@@ -131,23 +131,42 @@ class NowPlayingInfoManager : ObservableObject {
         
         return nil
     }
+    
+    func callIfPlaying(discordRPC: CustomDiscordRPC, callback: @escaping () -> Void) {
+        MRMediaRemoteGetNowPlayingApplicationIsPlaying(DispatchQueue.main) { isPlaying in
+            if isPlaying {
+                callback()
+            } else {
+                self.clearDiscordActivity(discordRPC: discordRPC)
+            }
+        }
+    }
+    
+    func clearDiscordActivity(discordRPC: CustomDiscordRPC) {
+        discordRPC.clearActivity()
+    }
+                
         
-    func setDiscordActivity(discordRPC: CustomDiscordRPC) async {
+    func setDiscordActivity(discordRPC: CustomDiscordRPC) {
         guard let nowPlayingInfo else {
             return
         }
         
-        let artworkLink = await getImageArtworkLink() ?? ""
-        discordRPC.sendActivity(CustomDiscordActivity(
-            type: .listening,
-            state: nowPlayingInfo.album ?? "",
-            details: nowPlayingInfo.title ?? "",
-            timestamps: nowPlayingInfo.getDiscordTimestamps(),
-            assets: DiscordAssets(
-                large_image: artworkLink,
-                large_text: nowPlayingInfo.artist ?? "TITLE_NIL"
-            )
-        ))
+        callIfPlaying(discordRPC: discordRPC) {
+            Task {
+                let artworkLink = await self.getImageArtworkLink() ?? ""
+                discordRPC.sendActivity(CustomDiscordActivity(
+                    type: .listening,
+                    state: nowPlayingInfo.album ?? "",
+                    details: nowPlayingInfo.title ?? "",
+                    timestamps: nowPlayingInfo.getDiscordTimestamps(),
+                    assets: DiscordAssets(
+                        large_image: artworkLink,
+                        large_text: nowPlayingInfo.artist ?? "TITLE_NIL"
+                    )
+                ))
+            }
+        }
     }
     
     func getNowPlayingInfo() -> NowPlayingInfo? {

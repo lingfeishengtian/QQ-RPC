@@ -51,7 +51,7 @@ struct CustomDiscordActivity : Encodable {
 
 struct DiscordPayloadActivityArgs : Encodable {
     var pid: Int
-    var activity: CustomDiscordActivity
+    var activity: CustomDiscordActivity?
 }
 
 struct DiscordPayload : Encodable {
@@ -101,6 +101,11 @@ class CustomDiscordRPC {
     private var lastMessageTime: Date?
     private var pendingWorkItem: DispatchWorkItem?
     private let queue = DispatchQueue(label: "com.yourapp.discordactivitysender", qos: .default)
+    
+    func clearActivity() {
+        send(str: "{\"cmd\": \"SET_ACTIVITY\", \"args\": { \"pid\": \(Int(ProcessInfo.processInfo.processIdentifier)) }, \"nonce\": \"\(UUID().uuidString)\" }", op: .frame)
+        printResponse()
+    }
     
     func sendActivity(_ activity: CustomDiscordActivity) {
         // Cancel any pending work item

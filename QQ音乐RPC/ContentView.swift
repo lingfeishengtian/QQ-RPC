@@ -38,10 +38,7 @@ struct ContentView: View {
                     DispatchQueue.main.async {
                         self.nowPlayingInfo.setNowPlayingInfo(info)
                         self.numChanges += 1
-                        
-                        Task {
-                            await nowPlayingInfo.setDiscordActivity(discordRPC: customDiscordRPC)
-                        }
+                        nowPlayingInfo.setDiscordActivity(discordRPC: customDiscordRPC)
                     }
                 }
             })
@@ -87,6 +84,9 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default
             .publisher(for: Notification.Name.mrMediaRemoteNowPlayingInfoDidChange)) { _ in
                 self.extractNowPlayingInfo()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name.mrMediaRemoteNowPlayingApplicationIsPlayingDidChange)) { _ in
+                self.nowPlayingInfo.callIfPlaying(discordRPC: customDiscordRPC) {}
             }
     }
 }
