@@ -1,0 +1,42 @@
+{
+  "originHash" : "78775f563df75fb4acc137671d588fbaf4439528fe2bf3cce35ebf8a55de95a9",
+  "pins" : [
+    {
+      "identity" : "bluesocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/BlueSocket",
+      "state" : {
+        "revision" : "7b23a867008e0027bfd6f4d398d44720707bc8ca",
+        "version" : "2.0.4"
+      }
+    },
+    {
+      "identity" : "mediaremote",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PrivateFrameworks/MediaRemote",
+      "state" : {
+        "revision" : "ee5ae0cc17c0f759049d50e6ea95e1cf718dfda5",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "protocolbuffer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PrivateFrameworks/ProtocolBuffer",
+      "state" : {
+        "revision" : "d4c569d9ce5e146e9185ebc056fdbaaf9784ec5d",
+        "version" : "0.1.1"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift",
+      "state" : {
+        "revision" : "a95fc6df17d108bd99210db5e8a9bac90fe984b8",
+        "version" : "0.15.3"
+      }
+    }
+  ],
+  "version" : 3
+}

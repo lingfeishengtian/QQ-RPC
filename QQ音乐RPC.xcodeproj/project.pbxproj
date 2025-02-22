@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		962480FD2D694F75002E652F /* MediaRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965E80D32D6911FA000DDBAB /* MediaRemote.framework */; };
+		962480FE2D694F75002E652F /* MediaRemote.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965E80D32D6911FA000DDBAB /* MediaRemote.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		962481022D694FA1002E652F /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 962481012D694FA1002E652F /* Socket */; };
+		964A9EC72D6A0B1800C598BF /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 964A9EC62D6A0B1800C598BF /* SQLite */; };
+		965E80D02D690F48000DDBAB /* PrivateMediaRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 965E80CF2D690F48000DDBAB /* PrivateMediaRemote */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		965E80AC2D690A86000DDBAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,10 +31,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		962480FF2D694F75002E652F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				962480FE2D694F75002E652F /* MediaRemote.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		962481572D695522002E652F /* discord_game_sdk.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = discord_game_sdk.dylib; path = ../../../Downloads/discord_game_sdk/lib/aarch64/discord_game_sdk.dylib; sourceTree = "<group>"; };
 		965E809A2D690A84000DDBAB /* QQ音乐RPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QQ音乐RPC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E80AB2D690A86000DDBAB /* QQ音乐RPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QQ音乐RPCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E80B52D690A86000DDBAB /* QQ音乐RPCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QQ音乐RPCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		965E80D32D6911FA000DDBAB /* MediaRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaRemote.framework; path = ../../../../../System/Library/PrivateFrameworks/MediaRemote.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964A9EC72D6A0B1800C598BF /* SQLite in Frameworks */,
+				962481022D694FA1002E652F /* Socket in Frameworks */,
+				965E80D02D690F48000DDBAB /* PrivateMediaRemote in Frameworks */,
+				962480FD2D694F75002E652F /* MediaRemote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +106,7 @@
 				965E809C2D690A84000DDBAB /* QQ音乐RPC */,
 				965E80AE2D690A86000DDBAB /* QQ音乐RPCTests */,
 				965E80B82D690A86000DDBAB /* QQ音乐RPCUITests */,
+				965E80CD2D690E38000DDBAB /* Frameworks */,
 				965E809B2D690A84000DDBAB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +121,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		965E80CD2D690E38000DDBAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				962481572D695522002E652F /* discord_game_sdk.dylib */,
+				965E80D32D6911FA000DDBAB /* MediaRemote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +140,7 @@
 				965E80962D690A84000DDBAB /* Sources */,
 				965E80972D690A84000DDBAB /* Frameworks */,
 				965E80982D690A84000DDBAB /* Resources */,
+				962480FF2D694F75002E652F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +151,9 @@
 			);
 			name = "QQ音乐RPC";
 			packageProductDependencies = (
+				965E80CF2D690F48000DDBAB /* PrivateMediaRemote */,
+				962481012D694FA1002E652F /* Socket */,
+				964A9EC62D6A0B1800C598BF /* SQLite */,
 			);
 			productName = "QQ音乐RPC";
 			productReference = 965E809A2D690A84000DDBAB /* QQ音乐RPC.app */;
@@ -195,6 +237,11 @@
 			);
 			mainGroup = 965E80912D690A84000DDBAB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				965E80CE2D690F48000DDBAB /* XCRemoteSwiftPackageReference "MediaRemote" */,
+				962481002D694FA1002E652F /* XCRemoteSwiftPackageReference "BlueSocket" */,
+				964A9EC52D6A0B1800C598BF /* XCRemoteSwiftPackageReference "SQLite" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 965E809B2D690A84000DDBAB /* Products */;
 			projectDirPath = "";
@@ -410,7 +457,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterhan.QQ--RPC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/QQ__RPCApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -437,7 +489,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hunterhan.QQ--RPC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/QQ__RPCApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};
@@ -549,6 +606,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		962481002D694FA1002E652F /* XCRemoteSwiftPackageReference "BlueSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/BlueSocket";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.4;
+			};
+		};
+		964A9EC52D6A0B1800C598BF /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
+		965E80CE2D690F48000DDBAB /* XCRemoteSwiftPackageReference "MediaRemote" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PrivateFrameworks/MediaRemote";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		962481012D694FA1002E652F /* Socket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962481002D694FA1002E652F /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = Socket;
+		};
+		964A9EC62D6A0B1800C598BF /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 964A9EC52D6A0B1800C598BF /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+		965E80CF2D690F48000DDBAB /* PrivateMediaRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 965E80CE2D690F48000DDBAB /* XCRemoteSwiftPackageReference "MediaRemote" */;
+			productName = PrivateMediaRemote;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 965E80922D690A84000DDBAB /* Project object */;
 }
